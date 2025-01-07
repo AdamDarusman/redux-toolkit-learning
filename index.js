@@ -1,8 +1,24 @@
-const BUY_CAKE = 'BUY CAKE'
+const CAKE_ORDERED = 'CAKE_ORDERED'
 
-function buyCake() {
+function orderCake() {
     return{
-        type: BUY_CAKE,
-        info: 'first redux action'
+        type: CAKE_ORDERED,
+        quality: 1
+    }
+}
+
+const initialState = {
+    numOffCakes: 10
+}
+
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case CAKE_ORDERED:
+            return {
+                ...state,
+                numOffCakes: state.numOffCakes - 1,
+            }
+        default:
+            return state
     }
 }
