@@ -46,9 +46,15 @@ const unsubscribe = store.subscribe(() =>
     console.log('update store', store.getState())
 )
 
-store.dispatch(orderCake())
-store.dispatch(orderCake())
-store.dispatch(orderCake())
-store.dispatch(restockedCake(5))
+// store.dispatch(orderCake())
+// store.dispatch(orderCake())
+// store.dispatch(orderCake())
+// store.dispatch(restockedCake(5))
+
+const actions = redux.bindActionCreators({orderCake, restockedCake}, store.dispatch)
+actions.orderCake()
+actions.orderCake()
+actions.orderCake()
+actions.restockedCake(3)
 
 unsubscribe()
